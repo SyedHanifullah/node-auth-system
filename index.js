@@ -4,7 +4,8 @@ const dotenv = require("dotenv");
 const authToken = require("./middleware/authToken");
 const user = require("./users/usersRoutes");
 const userAuth = require("./users/UserAuth");
-const fileUpload = require("./fileUpload/fileUpload");
+const userClass = require("./userClass/UserClassRoutes");
+// const fileUpload = require("./fileUpload/fileUpload");
 const path = require("path");
 
 const app = express();
@@ -16,9 +17,9 @@ mongoose
   .connect("mongodb://localhost/abcSchool")
   .then(() => console.log("Connected to mongodb"))
   .catch((ex) => console.log(ex));
-app.use("/api/user", user);
+app.use("/api/users", user);
 app.use("/api/auth/login", userAuth);
-app.use("/api/file", fileUpload);
+app.use("/api/users", userClass);
 
 app.listen(3000, () => {
   console.log("Server is running on Port 3000");

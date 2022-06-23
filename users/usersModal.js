@@ -30,4 +30,5 @@ userSchema.methods.generateAuthToken = function () {
   return jwt.sign(data, jwtSecretKey);
 };
 const User = mongoose.model("User", userSchema);
-module.exports = User;
+module.exports = {User,userSchema};
+ 
