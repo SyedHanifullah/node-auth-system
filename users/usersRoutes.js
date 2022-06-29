@@ -132,7 +132,7 @@ route.delete("/:userId", [authToken, isAdmin], async (req, res) => {
     if (ex.kind === "ObjectId")
       return res.status(400).json({ msg: "Invalid userId" });
 
-    res.status(500).json({ msg: "Internal Serer Error", error: ex });
+  return  res.status(500).json({ msg: "Internal Serer Error", error: ex });
   }
 });
 // updates user password (if old password isnt provided) (only for admin)

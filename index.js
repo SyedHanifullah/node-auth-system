@@ -19,7 +19,7 @@ mongoose
   .catch((ex) => console.log(ex));
 app.use("/api/users", user);
 app.use("/api/auth/login", userAuth);
-app.use("/api/users", userClass);
+app.use("/api/class", userClass);
 
 app.listen(3000, () => {
   console.log("Server is running on Port 3000");
