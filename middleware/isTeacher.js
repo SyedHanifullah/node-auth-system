@@ -1,4 +1,6 @@
 const jwt = require("jsonwebtoken");
+const { globalRoles } = require("../utils/roles");
+
 module.exports = (req, res, next) => {
   if (!req.headers || req.headers["x-auth-token"])
     return res.status(401).json({ msg: "Unauthorized" });
@@ -11,9 +13,9 @@ module.exports = (req, res, next) => {
 
   let { userRole: role } = token;
 
-  if (role === "teacher" || role === "admin") {
+  if (globalRoles.includes(role)) {
     next();
   } else {
-    res.status(401).json({ msg: "not a teacher user, Unauthorized " });
+    res.status(401).json({ msg: "Not a teacher user, Unauthorized " });
   }
 };

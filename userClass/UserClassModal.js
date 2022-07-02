@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const userSchema = require("../users/usersModal");
 const userClassSchema = new mongoose.Schema({
   name: {
     type: String,
     default: null,
+    required: true,
   },
   users: {
     type: [mongoose.Schema.Types.ObjectId],

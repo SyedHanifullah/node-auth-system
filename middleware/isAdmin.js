@@ -15,6 +15,6 @@ module.exports = (req, res, next) => {
   if (role === "admin") {
     next();
   } else {
-    res.status(401).json({ msg: " Not an admin user, Unauthorized " });
+    res.status(401).json({ msg: "Not an admin user, Unauthorized " });
   }
 };

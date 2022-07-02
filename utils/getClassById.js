@@ -10,6 +10,6 @@ module.exports = async (res, classId) => {
     if (err.kind === "ObjectId")
       return res.status(400).json({ msg: "invalid id format", error: err });
 
-    return res.status(500).json({ msg: "Server Error", error: err });
+    return res.status(500).json({ msg: "Internal Server Error", error: err });
   }
 };
